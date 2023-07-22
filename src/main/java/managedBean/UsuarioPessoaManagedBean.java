@@ -8,9 +8,8 @@ import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.DatatypeConverter;
 
@@ -24,16 +23,14 @@ import dao.DaoUsuario;
 import model.EmailUser;
 import model.UsuarioPessoa;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import com.itextpdf.text.*;
-import com.itextpdf.text.pdf.*;
-
 
 @ManagedBean (name="usuarioPessoaManagedBean")
-@ViewScoped
+@RequestScoped
 public class UsuarioPessoaManagedBean {
+	
+	public UsuarioPessoaManagedBean() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	private UsuarioPessoa pessoa = new UsuarioPessoa();	
 	private DaoUsuario<UsuarioPessoa> daoGeneric = new DaoUsuario<UsuarioPessoa>();	

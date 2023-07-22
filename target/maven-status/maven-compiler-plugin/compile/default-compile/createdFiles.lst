@@ -1,0 +1,10 @@
+model\UsuarioPessoa.class
+managedBean\TelefoneManagedBean.class
+dao\DaoUsuario.class
+managedBean\UsuarioPessoaManagedBean.class
+dao\DaoGeneric.class
+dao\DaoTelefone.class
+posjavahibernate\HibernateUtil.class
+model\TelefoneUser.class
+dao\DaoEmail.class
+model\EmailUser.class

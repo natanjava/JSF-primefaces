@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Phones</title>
+</h:head>
+
+
+<h:body>
+	
+	<h:form>
+		<p:breadCrumb>
+
+			<p:menuitem />
+			<p:menuitem value="Home" action="primefaces.jsf" />
+			<p:menuitem value="Phones Registration" action="primefaces.jsf" />
+
+		</p:breadCrumb>
+		
+	</h:form>
+	
+	
+
+	<h:form id="formCad" style="margin-left:50px;">
+		<p:growl autoUpdate="true" showDetail="true" showSummary="false"/>
+
+		<h:panelGrid columns="2">
+
+			<p:outputLabel> User Name: </p:outputLabel>
+			<h:outputText value="#{telefoneManagedBean.user.nome}" />
+
+			<p:outputLabel>Phone: </p:outputLabel>
+			<p:inputMask value="#{telefoneManagedBean.telefoneUser.numero}"  mask="(999)999-9999" style="width:150px"
+							required="true" requiredMessage="Please Inform the number" />
+
+			<p:outputLabel>Phone type: </p:outputLabel>
+			<p:selectOneMenu value="#{telefoneManagedBean.telefoneUser.tipo}" >
+				<f:selectItem itemValue="HOME" itemLabel="Home"/>
+				<f:selectItem itemValue="OFFICE" itemLabel="Office"/>
+				<f:selectItem itemValue="CELL PHONE" itemLabel="Cell-phone"/>
+			</p:selectOneMenu>
+
+		</h:panelGrid>
+
+		<br />
+
+		<p:commandButton value="Save" action="#{telefoneManagedBean.salvar}" ajax="false" />
+
+	</h:form>
+	
+	
+	<h:form id="formTable" style="margin-left:50px;">
+		<p:dataTable value="#{telefoneManagedBean.user.telefonesUser}" var="fone"
+			cellpadding="5" border="1" style="width:500px;">
+
+			<f:facet name="header">List of Phones</f:facet>
+
+			<p:column headerText="ID" width="30">
+				<h:outputText value="#{fone.id}" />
+			</p:column>
+
+			<p:column headerText="Number" width="150">
+				<h:outputText value="#{fone.numero}" />
+			</p:column>
+
+			<p:column headerText="Type">
+			<center>
+				<h:outputText value="#{fone.tipo}" />
+			</center>
+			</p:column>
+
+			<p:column headerText="Remove">
+			<center>
+				<h:commandLink 
+					action="#{telefoneManagedBean.removeTelefone}" immediate="true"
+					id="btnRemove" onclick="return confirm('Are you sure you want to delete Phone?');">
+					<f:setPropertyActionListener value="#{fone}"
+						target="#{telefoneManagedBean.telefoneUser}" />
+					<f:ajax execute="btnRemove" render="@form" />
+					<h:graphicImage width="25" height="25" url="resources/img/excluir.png" />
+				</h:commandLink>
+			</center>
+			</p:column>
+
+		</p:dataTable>
+	</h:form>
+
+
+
+</h:body>
+
+</html>

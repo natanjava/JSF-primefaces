@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:p="http://primefaces.org/ui"
+	  xmlns:pt="http://xmlns.jcp.org/jsf/passthrough" >
+
+	<h:head> 
+		<title>JSF - JPA</title>
+	</h:head>
+	
+	
+	<h:body>
+		
+		<h:form>
+			<p:breadCrumb>
+				
+				<p:menuitem />
+				<p:menuitem value="Pagina JSF" action="index.jsf" />
+				<p:menuitem value="Pagina Prime" action="primefaces.jsf" />
+			
+			</p:breadCrumb>
+		</h:form>	
+		
+		
+		
+
+		
+		<h:form id="formCad">	
+			<p:messages autoUpdate="true" showDetail="true" id="msg"/>
+			
+			<p:panelGrid columns="2">				
+			
+				<h:outputLabel>ID</h:outputLabel>
+				<h:inputText readonly="true" value="#{usuarioPessoaManagedBean.pessoa.id}"/>
+				
+				<h:outputLabel>Nome</h:outputLabel>
+				<h:inputText value="#{usuarioPessoaManagedBean.pessoa.nome}" pt:placeholder="Informe o nome" 
+							required="true" requiredMessage="Informe o nome"/>
+				
+				<h:outputLabel>Sobrenome</h:outputLabel>
+				<h:inputText value="#{usuarioPessoaManagedBean.pessoa.sobrenome}"/>
+				
+				<h:outputLabel>Idade</h:outputLabel>
+				<h:inputText value="#{usuarioPessoaManagedBean.pessoa.idade}"/>
+				
+				<h:outputLabel>Login</h:outputLabel>
+				<h:inputText value="#{usuarioPessoaManagedBean.pessoa.login}"/>
+				
+				<h:outputLabel>Senha</h:outputLabel>
+				<h:inputSecret value="#{usuarioPessoaManagedBean.pessoa.senha}" redisplay="true"/>
+				
+			</p:panelGrid>
+			
+			<br/>
+			<h:commandButton value="Salvar" action="#{usuarioPessoaManagedBean.salvar}" style="margin-left:120px;"/>
+			<h:commandButton value="Novo" action="#{usuarioPessoaManagedBean.novo}" style="margin-left:10px;" />	
+			
+			<br/><br/>		
+		</h:form>
+		
+		<h:form id="formTab">	
+			<h:dataTable value="#{usuarioPessoaManagedBean.listPessoas}" var="u"  cellpadding="3" cellspacing="3" border="1" >
+					
+				<f:facet name="header">Lista de Usuarios</f:facet> 
+				
+				<p:column> 
+					<f:facet name="header">ID</f:facet> 
+					<h:outputText value="#{u.id}" />
+				</p:column>
+					
+				<p:column> 
+					<f:facet name="header">Nome</f:facet> 
+					<h:outputText value="#{u.nome}" />
+				</p:column>
+					
+				<p:column> 
+					<f:facet name="header">Sobrenome</f:facet> 
+					<h:outputText value="#{u.sobrenome}" />
+				</p:column>
+				
+				<p:column> 
+					<f:facet name="header">Idade</f:facet> 
+					<h:outputText value="#{u.idade}" />
+				</p:column>
+					
+				<p:column> 
+					<f:facet name="header">Login</f:facet> 
+					<h:outputText value="#{u.login}" />
+				</p:column>
+					
+				<p:column>
+					<f:facet name="header">Acao</f:facet>
+					<h:commandLink value="Editar" immediate="true" id="btnEdit">
+						<f:setPropertyActionListener value="#{u}" target="#{usuarioPessoaManagedBean.pessoa}" />
+						<f:ajax execute="btnEdit" render=":formCad" />
+					</h:commandLink>
+				</p:column>
+					
+				<p:column>
+					<f:facet name="header">Acao</f:facet>
+					<h:commandLink value="Excluir" action="#{usuarioPessoaManagedBean.excluir}" 
+									immediate="true" id="btnRemove">
+						<f:setPropertyActionListener value="#{u}"
+								target="#{usuarioPessoaManagedBean.pessoa}" />
+						<f:ajax execute="btnRemove" render="@form :formCad:msg" />
+					</h:commandLink>
+				</p:column>		
+								
+				<p:column>
+					<f:facet name="header">Acao</f:facet>
+					<h:commandLink value="Telefone"  immediate="true" 
+								action="telefone.xhtml"  id="btnTelefone">
+						<f:param name="codigoUser" value="#{u.id}" ></f:param>
+					</h:commandLink>
+				</p:column>		
+				
+			</h:dataTable>			
+			
+		</h:form>		
+		
+	</h:body>
+
+</html>

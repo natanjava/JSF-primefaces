@@ -3,7 +3,6 @@ package posjavahibernate;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.*;
 
 
 public class HibernateUtil {
@@ -25,8 +24,10 @@ public class HibernateUtil {
 		catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+	}
 	
+	public static EntityManagerFactory getFactory() {
+		return factory;
 	}
 	
 	
@@ -40,7 +41,5 @@ public class HibernateUtil {
 	public static Object getPrimaryKey(Object entity) {		
 		return factory.getPersistenceUnitUtil().getIdentifier(entity);
 	}
-
-	
 	
 }

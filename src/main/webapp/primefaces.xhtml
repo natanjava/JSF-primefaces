@@ -17,7 +17,7 @@
 		<p:breadCrumb>
 
 			<p:menuitem />
-			<p:menuitem value="Home" action="primefaces.xhtml" />
+			<p:menuitem value="Home"  />
 			<p:menuitem value="Usability Infos" action="usability.jsf" />
 
 		</p:breadCrumb>
@@ -207,7 +207,7 @@
 			<p:dataExporter type="pdf" target="dataTableUsers" fileName="UsersReport" />
 		</p:commandButton>
 		
-		<p:dialog header="E-Mail(s)" id="dialogEmail" widgetVar="dialogEmail"
+		<p:dialog header="E-Mail(s)" id="dialogEmail" widgetVar="dialogEmail" onHide="location.reload();"
 			resizable="false" position="top" modal="true" width="490px" >
 			<br />
 			<p:panelGrid>

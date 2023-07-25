@@ -1,5 +1,7 @@
 package managedBean;
 
+import java.io.IOException;
+
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -82,6 +84,13 @@ public class TelefoneManagedBean {
 		addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Informação", "Phone deleted successfully."));
 		
 		return "";
+	}
+	
+	public void voltar() throws IOException {
+		
+		//return "primefaces.jsf";
+		
+		FacesContext.getCurrentInstance().getExternalContext().redirect("primefaces.jsf");
 	}
 
 }

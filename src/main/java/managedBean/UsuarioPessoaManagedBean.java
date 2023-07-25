@@ -153,6 +153,7 @@ public class UsuarioPessoaManagedBean {
 				emailUser = daoEmail.updateMerge(emailUser);
 		
 				pessoa.getEmails().add(emailUser);
+				//FacesContext.getCurrentInstance().getExternalContext().redirect("primefaces.jsf");
 				FacesContext.getCurrentInstance().addMessage(null,
 						new FacesMessage(FacesMessage.SEVERITY_INFO, "Info: ", "Email saved succesfully"));
 			}
@@ -172,6 +173,7 @@ public class UsuarioPessoaManagedBean {
 		userRemove.setId(Long.parseLong(codigoEmail));
 		daoEmail.deletarPorId(userRemove);
 		pessoa.getEmails().remove(userRemove);
+		
 		FacesContext.getCurrentInstance().addMessage(null,
 				new FacesMessage(FacesMessage.SEVERITY_INFO, "Info:", "Removed succesfully."));
 	}

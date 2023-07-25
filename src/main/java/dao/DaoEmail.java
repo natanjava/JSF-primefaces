@@ -42,5 +42,8 @@ public class DaoEmail<E> extends DaoGeneric<EmailUser> {
 	    
 	    return numberEmails;
 	}
+	
+
+	
 		
 }

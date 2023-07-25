@@ -26,9 +26,7 @@ public class HibernateUtil {
 		}
 	}
 	
-	public static EntityManagerFactory getFactory() {
-		return factory;
-	}
+
 	
 	
 	/*retorna o gerenciador de entidade para fazer alteracoes no banco*/

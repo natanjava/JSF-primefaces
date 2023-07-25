@@ -74,4 +74,6 @@ public class DaoUsuario<E> extends DaoGeneric<UsuarioPessoa> {
 	    return numberPessoa;
 	}
 
+
+
 }

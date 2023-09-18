@@ -14,13 +14,18 @@
 		<class>model.EmailUser</class>
 	
 		<properties>
-		<!--  Dados de conexao do banco -->	
+		<!--  Connection with DB -->	
 			<property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
 			
-			<!-- conexao local   -->
+			<!-- conexao local  
 			<property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5433/posjavahibernate2"/>
 			<property name="hibernate.connection.username" value="postgres"/> 
 			<property name="hibernate.connection.password" value="admin"/>
+			 -->
+			 
+			 <property name="hibernate.connection.url" value="jdbc:postgresql://16.170.235.54:5432/posjavahibernate2?autoReconnect=true"/>
+			<property name="hibernate.connection.username" value="xxxxx"/> 
+			<property name="hibernate.connection.password" value="xxxxx"/>
 			
 			<!-- conexao HEROKU  
 			<property name="hibernate.connection.url" value="jdbc:postgresql://ec2-34-236-103-63.compute-1.amazonaws.com:5432/dbjnekanokg26n?sslmode=require&amp;autoReconnect=true"/>

@@ -10,7 +10,7 @@ import model.EmailUser;
 import model.UsuarioPessoa;
 import posjavahibernate.HibernateUtil;
 
-public class DaoUsuario<E> extends DaoGeneric<UsuarioPessoa> {
+public class DaoUsuario<E> extends DaoGeneric<UsuarioPessoa> {  // **** LINHA 13 erro 
 	
 	private EntityManager entityManager = HibernateUtil.getEntityManager();
 	UsuarioPessoa pessoa = new UsuarioPessoa();

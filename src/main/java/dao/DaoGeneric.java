@@ -9,9 +9,7 @@ import posjavahibernate.HibernateUtil;
 
 public class DaoGeneric<E> {
 	
-	private EntityManager entityManager = HibernateUtil.getEntityManager(); 
-	
-	
+	private EntityManager entityManager = HibernateUtil.getEntityManager();  // *** LINHA 12 ERRO
 
 	public void salvar(E entidade) {		
 		EntityTransaction transaction = entityManager.getTransaction();
@@ -69,15 +67,6 @@ public class DaoGeneric<E> {
 	public EntityManager getEntityManager() {
 		return entityManager;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 
 }

@@ -23,11 +23,19 @@
 		</dependency>
 		
 		<!-- Alex usa a versão 9.2-1003-jdbc4, eu em todos os projetos uso 9.4-1200-jdbc41, 
-			agora tento 9.4.1212-->
+			agora tento 9.4.1212
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<version>9.4-1200-jdbc41</version>
+		</dependency>
+			-->
+			
+		<!-- Postgre 15.4-->
+		<dependency>
+		    <groupId>org.postgresql</groupId>
+		    <artifactId>postgresql</artifactId>
+		    <version>42.2.24</version>
 		</dependency>
 		
 		

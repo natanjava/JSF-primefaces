@@ -15,24 +15,13 @@
 	
 		<properties>
 		<!--  Connection with DB -->	
-			<property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
-			
-			<!-- conexao local  
-			<property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5433/posjavahibernate2"/>
+	 
+  		 	<property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5433/posjavahibernate2"/>
 			<property name="hibernate.connection.username" value="postgres"/> 
 			<property name="hibernate.connection.password" value="admin"/>
-			 -->
-			 
-			 <property name="hibernate.connection.url" value="jdbc:postgresql://16.170.235.54:5432/posjavahibernate2?autoReconnect=true"/>
-			<property name="hibernate.connection.username" value="xxxxx"/> 
-			<property name="hibernate.connection.password" value="xxxxx"/>
 			
-			<!-- conexao HEROKU  
-			<property name="hibernate.connection.url" value="jdbc:postgresql://ec2-34-236-103-63.compute-1.amazonaws.com:5432/dbjnekanokg26n?sslmode=require&amp;autoReconnect=true"/>
-			<property name="hibernate.connection.username" value="sfnuuqgvjmyfqw"/> 
-			<property name="hibernate.connection.password" value="2c625d3a34127e633d1cdd4983391d8a67e289372e313a712340ac3e16fcdcfa"/>	
-			-->
 			
+			<property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
 			<!-- criar tabela automaticamente, mudou de update pra create apos erros -->
 			<property name="hibernate.hbm2ddl.auto" value="none"/>	

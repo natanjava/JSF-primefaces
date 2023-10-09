@@ -1,4 +1,4 @@
-# pos-java-hibernate2
+# JSF-primefaces
 
 About the sistem.
 This system registers users on a form with validations and offers the option to upload a photo. Once saved, 
